@@ -16,7 +16,7 @@ The system consists of three main components:
 
 ### Workflow Diagram
 
-![Multi-Agent Workflow](workflow_diagram.png)
+![Image](https://github.com/user-attachments/assets/921f2bd1-a9ba-44b5-b1f7-f44df90b444e)
 
 ## Features
 
