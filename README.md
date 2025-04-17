@@ -16,7 +16,7 @@ The system consists of three main components:
 
 ### Workflow Diagram
 
-![Image](https://github.com/user-attachments/assets/921f2bd1-a9ba-44b5-b1f7-f44df90b444e)
+![Image](https://github.com/user-attachments/assets/d507d828-2ac6-482f-855e-1e86c8eb8515)
 
 ## Features
 
