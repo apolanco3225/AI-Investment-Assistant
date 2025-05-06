@@ -3,3 +3,4 @@ langchain-openai==0.3.13
 alpaca-trade-api==3.2.0
 edgartools==3.14.6
 yfinance==0.2.55
+tavily-python==0.3.1
