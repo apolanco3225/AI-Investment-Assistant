@@ -4,19 +4,39 @@ A multi-agent system for investment portfolio management and company research us
 
 ## Overview
 
-This project implements a multi-agent system that combines portfolio management capabilities with company research functionality. The system uses a supervisor agent to coordinate between specialized agents that handle different aspects of investment management.
+This project implements a multi-agent system that combines portfolio management capabilities with company research and financial analysis functionality. The system uses a supervisor agent to coordinate between specialized agents that handle different aspects of investment management.
 
 ## Architecture
 
-The system consists of three main components:
+The system consists of four main components:
 
 1. **Supervisor Agent**: Coordinates and routes user requests to the appropriate specialized agent
 2. **Portfolio Manager Agent**: Handles portfolio-related tasks and trading operations
-3. **Company Info Agent**: Provides detailed information about companies and stocks
+3. **Financial Analyst Agent**: Provides technical and fundamental analysis of stocks
+4. **Company Research Agent**: Provides detailed information about companies and stocks
 
 ### Workflow Diagram
 
 ![Image](https://github.com/user-attachments/assets/d507d828-2ac6-482f-855e-1e86c8eb8515)
+
+
+```
+                                                 +-----------+
+                                                 | __start__ |
+                                                 +-----------+
+                                                       *
+                                                       *
+                                                       *
+                                                +------------+
+                                             ***| supervisor |.....
+                                     ********   +------------+*    ........
+                              *******           ..             ***         .........
+                      ********                ..                  ***               ........
+                  ****                      ..                       **                     .....
++------------------+           +-------------------+           +-------------------+           +---------+
+| company_research |           | financial_analyst |           | portfolio_manager |           | __end__ |
++------------------+           +-------------------+           +-------------------+           +---------+
+```
 
 ## Features
 
@@ -26,41 +46,69 @@ The system consists of three main components:
 - Track positions and performance
 - Monitor cash and buying power
 
-### Company Info Agent
+### Financial Analyst Agent
+- Get analyst price targets
+- Receive investment recommendations
+- Access fundamental analysis
+- View technical analysis indicators
+
+### Company Research Agent
 - Retrieve detailed company information
-- Access financial metrics
-- Get market data
-- View company profiles and risk assessments
+- Access quarterly financial reports
+- Search financial news
+- View balance sheet data
+
+## Project Structure
+
+```
+src/
+├── __init__.py          # Package initialization
+├── config.py           # Configuration and prompts
+├── agents.py           # Agent definitions
+├── tools.py            # Tool implementations
+└── main.py             # Main script
+```
 
 ## Technical Implementation
 
 The system is built using:
 - LangGraph for agent orchestration
 - LangChain for agent creation and tool management
+- OpenAI GPT-4 for natural language processing
 - Alpaca API for trading operations
-- yfinance for company data
+- yfinance for market data
+- Tavily for news search
 
 ## Setup
 
 1. Install required dependencies:
 ```bash
-pip install langchain langgraph alpaca-trade-api yfinance
+pip install -r requirements.txt
 ```
 
 2. Set up environment variables:
 ```bash
-export ALPACA_API_KEY="your_api_key"
-export ALPACA_SECRET_KEY="your_secret_key"
+export OPENAI_API_KEY="your_openai_api_key"
+export ALPACA_API_KEY="your_alpaca_api_key"
+export ALPACA_SECRET_KEY="your_alpaca_secret_key"
+export TAVILY_API_KEY="your_tavily_api_key"
 ```
 
 ## Usage
 
-The system can be used through a Jupyter notebook interface. Example queries:
+The system can be used through the command line interface:
 
+```bash
+python -m src.main "What is the current state of my portfolio?"
+```
+
+Example queries:
 - "What is the current state of my portfolio?"
 - "Can you give me information about NVIDIA?"
 - "Buy 10 shares of AAPL"
 - "Sell 5 shares of MSFT"
+- "What are the analyst price targets for GOOGL?"
+- "Show me the technical analysis for MSFT"
 
 ## Agents
 
@@ -74,13 +122,24 @@ Handles all portfolio-related operations:
 - Position tracking
 - Performance analysis
 
-### Company Info Agent
-Provides comprehensive company research:
+### Financial Analyst Agent
+Provides comprehensive financial analysis:
+- Analyst price targets
+- Investment recommendations
+- Fundamental analysis
+- Technical analysis
+
+### Company Research Agent
+Provides detailed company research:
 - Company profiles
-- Financial metrics
-- Market data
-- Risk assessments
+- Quarterly reports
+- Financial news
+- Balance sheet analysis
 
 ## Contributing
 
 Feel free to submit issues and enhancement requests!
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
