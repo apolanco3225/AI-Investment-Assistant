@@ -4,7 +4,6 @@ Agent definitions for the AI Investment Assistant.
 
 from langchain_openai import ChatOpenAI
 from langgraph.prebuilt import create_react_agent
-from langgraph_supervisor import create_supervisor
 
 from .config import MODEL_CONFIG, AGENT_PROMPTS
 from .tools import (
@@ -69,20 +68,4 @@ def create_research_agent(model):
         prompt=AGENT_PROMPTS["company_research"]
     )
 
-def create_workflow():
-    """Create and return the complete agent workflow."""
-    model = create_llm()
-    
-    # Create individual agents
-    portfolio_manager = create_portfolio_manager_agent(model)
-    financial_analyst = create_financial_analyst_agent(model)
-    research_agent = create_research_agent(model)
-    
-    # Create supervisor workflow
-    workflow = create_supervisor(
-        [portfolio_manager, research_agent, financial_analyst],
-        model=model,
-        prompt=AGENT_PROMPTS["supervisor"]
-    )
-    
-    return workflow.compile() 
+

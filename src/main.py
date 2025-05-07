@@ -5,7 +5,7 @@ Main script to run the AI Investment Assistant workflow.
 import argparse
 from typing import Dict, Any
 
-from .agents import create_workflow
+from .workflow import create_workflow
 
 def process_query(query: str) -> Dict[str, Any]:
     """
