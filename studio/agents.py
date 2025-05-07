@@ -5,8 +5,8 @@ Agent definitions for the AI Investment Assistant.
 from langchain_openai import ChatOpenAI
 from langgraph.prebuilt import create_react_agent
 
-from .config import MODEL_CONFIG, AGENT_PROMPTS
-from .tools import (
+from config import MODEL_CONFIG, AGENT_PROMPTS
+from tools import (
     # Portfolio manager tools
     place_order,
     get_portfolio_state,
