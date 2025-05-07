@@ -4,13 +4,13 @@ Workflow definitions for connecting agents in the AI Investment Assistant.
 
 from langgraph_supervisor import create_supervisor
 
-from .agents import (
+from agents import (
     create_llm,
     create_portfolio_manager_agent,
     create_financial_analyst_agent,
     create_research_agent
 )
-from .config import AGENT_PROMPTS
+from config import AGENT_PROMPTS
 
 def create_workflow():
     """Create and return the complete agent workflow."""
@@ -29,3 +29,6 @@ def create_workflow():
     )
     
     return workflow.compile() 
+
+
+graph = create_workflow()

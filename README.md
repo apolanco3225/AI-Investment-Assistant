@@ -17,7 +17,7 @@ The system consists of four main components:
 
 ### Workflow Diagram
 
-![Image](https://github.com/user-attachments/assets/d507d828-2ac6-482f-855e-1e86c8eb8515)
+![Image](https://github.com/user-attachments/assets/dd9e9246-685a-427e-924c-8d3cb7c52a87)
 
 
 ```
