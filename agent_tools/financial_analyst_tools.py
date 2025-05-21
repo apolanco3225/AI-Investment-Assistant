@@ -1,6 +1,8 @@
 import yfinance as yf
 import pandas as pd
+from langsmith import traceable
 
+@traceable(run_type="tool")
 def get_analyst_price_targets(ticker):
     """
     Get analyst price targets for a stock using yfinance.
@@ -13,6 +15,7 @@ def get_analyst_price_targets(ticker):
     price_targets = stock.analyst_price_targets
     return price_targets
 
+@traceable(run_type="tool")
 def get_recommendations(ticker):
     """
     Get analyst recommendations for a stock using yfinance.
@@ -27,7 +30,7 @@ def get_recommendations(ticker):
 
 
 
-
+@traceable(run_type="tool")
 def get_fundamental_analysis(ticker_symbol: str) -> dict:
     """
     Retrieves a broad set of fundamental analysis data for a given stock ticker using Yahoo Finance.
@@ -110,6 +113,7 @@ def get_fundamental_analysis(ticker_symbol: str) -> dict:
 
 
 
+@traceable(run_type="tool")
 def get_technical_analysis(ticker_symbol: str, start_date: str, end_date: str, interval: str = "1d", indicators: list = None) -> dict:
     """
     Retrieves historical price data and computes common technical indicators.

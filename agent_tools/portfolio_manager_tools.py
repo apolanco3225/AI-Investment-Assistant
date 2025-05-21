@@ -2,7 +2,7 @@ import os
 import pandas as pd
 import yfinance as yf
 
-
+from langsmith import traceable
 
 import alpaca_trade_api as tradeapi
 
@@ -20,6 +20,7 @@ api = tradeapi.REST(API_KEY, API_SECRET, BASE_URL, api_version='v2')
 # Portfolio Agent Functions #
 #############################
 
+@traceable(run_type="tool")
 def place_order(symbol: str, qty: int, side: str):
     """
     Place a buy or sell market order for a given stock.
@@ -70,6 +71,7 @@ def place_order(symbol: str, qty: int, side: str):
 # print(response)
 
 
+@traceable(run_type="tool")
 def get_portfolio_state():
     """
     Retrieves and prints the current state of the Alpaca paper trading portfolio.

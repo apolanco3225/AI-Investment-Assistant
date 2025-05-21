@@ -6,10 +6,17 @@ from tavily import TavilyClient
 from edgar import Company, set_identity 
 set_identity("vito.corleone@gmail.com") 
 
+
+from langsmith import traceable
+
+
+
 #########################
 # Company Research Tools #
 #########################
     
+
+@traceable(run_type="tool")
 def search_financial_news(company_name: str, num_results: int = 3) -> str:
     """
     Search for the latest financial news 
@@ -29,6 +36,7 @@ def search_financial_news(company_name: str, num_results: int = 3) -> str:
                      for result in results['results']])
 
 
+@traceable(run_type="tool")
 def get_basic_info(ticker):
     """
     Get basic information about a stock using yfinance.
@@ -62,6 +70,7 @@ def get_basic_info(ticker):
     basic_info['companyOfficers'] = basic_info['companyOfficers'][0]
     return basic_info 
 
+@traceable(run_type="tool")
 def get_balance_sheet(ticker):
     """
     Get the balance sheet of a stock using yfinance.
@@ -75,7 +84,7 @@ def get_balance_sheet(ticker):
     balance_sheet = stock.balance_sheet.iloc[:, 0]
     return date, balance_sheet
 
-
+@traceable(run_type="tool")
 def get_quarterly_report(ticker):
     """
     Get the quarterly report of a stock using the EDGAR database.
