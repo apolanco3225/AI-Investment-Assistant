@@ -1,0 +1,20 @@
+models:
+  orchestrator:
+    provider: openai
+    model: gpt-4-turbo-preview
+    description: "Primary orchestrator for coordinating between different components"
+
+  company_researcher:
+    provider: openai
+    model: gpt-4-turbo-preview
+    description: "Specialized in company research and analysis"
+
+  portfolio_manager:
+    provider: openai
+    model: gpt-4-turbo-preview
+    description: "Manages portfolio composition and investment strategies"
+
+  financial_analyst:
+    provider: openai
+    model: gpt-4-turbo-preview
+    description: "Performs detailed financial analysis and forecasting"
