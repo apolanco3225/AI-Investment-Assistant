@@ -1,20 +1,32 @@
 models:
   orchestrator:
     provider: openai
-    model: gpt-4-turbo-preview
+    model: gpt-4o
     description: "Primary orchestrator for coordinating between different components"
+    prompt_handler: "apolanco3225/prompt_orchestrator_agent"
+    temperature: 0
+    agent_name: "orchestrator"
 
   company_researcher:
     provider: openai
-    model: gpt-4-turbo-preview
+    model: gpt-4o
     description: "Specialized in company research and analysis"
+    prompt_handler: "apolanco3225/prompt_company_researcher_agent"
+    temperature: 0
+    agent_name: "company_researcher"
 
   portfolio_manager:
     provider: openai
-    model: gpt-4-turbo-preview
+    model: gpt-4o
     description: "Manages portfolio composition and investment strategies"
+    prompt_handler: "apolanco3225/prompt_portfolio_manager_agent"
+    temperature: 0
+    agent_name: "portfolio_manager"
 
   financial_analyst:
     provider: openai
-    model: gpt-4-turbo-preview
+    model: gpt-4o
     description: "Performs detailed financial analysis and forecasting"
+    prompt_handler: "apolanco3225/prompt_financial_analyst_agent"
+    temperature: 0
+    agent_name: "financial_analyst"
