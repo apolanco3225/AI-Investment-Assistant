@@ -2,6 +2,8 @@
 
 A multi-agent system for investment portfolio management and company research using LangGraph and LangChain.
 
+![Image](https://github.com/user-attachments/assets/33b5e053-3c7b-4601-81de-5814fb664c43)
+
 ## Overview
 
 This project implements a multi-agent system that combines portfolio management capabilities with company research and financial analysis functionality. The system uses a supervisor agent to coordinate between specialized agents that handle different aspects of investment management.
@@ -20,23 +22,7 @@ The system consists of four main components:
 ![Image](https://github.com/user-attachments/assets/dd9e9246-685a-427e-924c-8d3cb7c52a87)
 
 
-```
-                                                 +-----------+
-                                                 | __start__ |
-                                                 +-----------+
-                                                       *
-                                                       *
-                                                       *
-                                                +------------+
-                                             ***| supervisor |.....
-                                     ********   +------------+*    ........
-                              *******           ..             ***         .........
-                      ********                ..                  ***               ........
-                  ****                      ..                       **                     .....
-+------------------+           +-------------------+           +-------------------+           +---------+
-| company_research |           | financial_analyst |           | portfolio_manager |           | __end__ |
-+------------------+           +-------------------+           +-------------------+           +---------+
-```
+
 
 ## Features
 
@@ -61,12 +47,17 @@ The system consists of four main components:
 ## Project Structure
 
 ```
-src/
-├── __init__.py          # Package initialization
-├── config.py           # Configuration and prompts
-├── agents.py           # Agent definitions
-├── tools.py            # Tool implementations
-└── main.py             # Main script
+.
+├── agent_tools/         # Custom tools for each agent
+├── mcp_servers/         # Multi-agent communication protocol servers
+├── .langgraph_api/      # LangGraph API configuration
+├── main.py             # Main script for command line execution
+├── agents.py           # Agent definitions and configurations
+├── config.yml          # Configuration settings
+├── langgraph.json      # LangGraph workflow configuration
+├── multi_agent_workflow.ipynb  # Jupyter notebook for workflow development
+├── MakeFile           # Build and deployment automation
+└── requirements.txt    # Project dependencies
 ```
 
 ## Technical Implementation
@@ -96,10 +87,22 @@ export TAVILY_API_KEY="your_tavily_api_key"
 
 ## Usage
 
-The system can be used through the command line interface:
+### Deployment with LangGraph
+
+To deploy and visualize the agent workflow graph:
 
 ```bash
-python -m src.main "What is the current state of my portfolio?"
+langgraph dev
+```
+
+This will start the LangGraph development server and open a visualization of your agent workflow in your default web browser.
+
+### Command Line Execution
+
+To run the system through the command line interface:
+
+```bash
+python main.py "What is the current state of my portfolio?"
 ```
 
 Example queries:
