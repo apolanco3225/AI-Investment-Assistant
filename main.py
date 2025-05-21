@@ -5,7 +5,7 @@ Main script to run the AI Investment Assistant workflow.
 import argparse
 from typing import Dict, Any
 
-from .workflow import create_workflow
+from agents import graph
 
 
 def process_query(query: str) -> Dict[str, Any]:
@@ -19,7 +19,6 @@ def process_query(query: str) -> Dict[str, Any]:
         Dict containing the workflow response
     """
     # Create and compile the workflow
-    graph = create_workflow()
 
     # Process the query
     result = graph.invoke({"messages": [{"role": "user", "content": query}]})
