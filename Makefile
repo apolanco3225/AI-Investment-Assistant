@@ -1,5 +1,5 @@
 install:
-	uv pip install --upgrade pip && \
+	pip install --upgrade pip && \
 	uv pip install -r requirements.txt
 
 format:
