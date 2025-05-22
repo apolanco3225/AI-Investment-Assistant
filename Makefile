@@ -1,5 +1,6 @@
 install:
 	pip install --upgrade pip && \
+	pip install uv==0.7.6 && \
 	uv pip install -r requirements.txt
 
 format:
