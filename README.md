@@ -74,7 +74,7 @@ The system is built using:
 
 1. Install required dependencies:
 ```bash
-pip install -r requirements.txt
+uv pip install -r requirements.txt
 ```
 
 2. Set up environment variables:
