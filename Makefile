@@ -8,4 +8,13 @@ format:
 lint:
 	pylint --disable=R,C,E0401,E0611 *.py
 
-all: install lint format 
+test:
+	pytest tests/ -v
+
+test-coverage:
+	pytest tests/ --cov=agent_tools -v
+
+test-watch:
+	pytest tests/ -v -f
+
+all: install lint format test 
