@@ -1,3 +1,5 @@
+[![Python application test with Github Actions](https://github.com/apolanco3225/AI-Investment-Assistant/actions/workflows/main.yml/badge.svg)](https://github.com/apolanco3225/AI-Investment-Assistant/actions/workflows/main.yml)
+
 # AI Investment Assistant
 
 A multi-agent system for investment portfolio management and company research using LangGraph and LangChain.
