@@ -18,6 +18,13 @@ jobs:
       run: |
         ls -la
         chmod +x Makefile
+    - name: Create virtual environment
+      run: |
+        uv venv
+        source .venv/bin/activate
+    - name: Install dependencies
+      run: |
+        make install
     - name: Lint with pylint
       run: |
         make lint
