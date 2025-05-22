@@ -15,7 +15,7 @@ import yaml
 # Third-party imports
 from langchain import hub
 from langchain_openai import ChatOpenAI
-from langgraph.prebuilt import create_react_agent
+from langgraph.agents import create_react_agent
 from langgraph_supervisor import create_supervisor
 
 # Local imports
@@ -34,7 +34,7 @@ from agent_tools.company_research_tools import (
 )
 
 # Load configuration from YAML file
-with open("config.yml", "r") as file:
+with open("config.yml", "r", encoding="utf-8") as file:
     config = yaml.safe_load(file)
 
 # Configure LangSmith environment for tracing and monitoring
@@ -123,9 +123,9 @@ model_orchestrator = ChatOpenAI(
     temperature=config["models"]["orchestrator"]["temperature"],
 )
 
-prompt_orchestrator = hub.pull(
-    config["models"]["orchestrator"]["prompt_handler"]
-)[0].prompt.template
+prompt_orchestrator = hub.pull(config["models"]["orchestrator"]["prompt_handler"])[
+    0
+].prompt.template
 
 # Create and compile the final workflow
 workflow = create_supervisor(
