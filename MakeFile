@@ -1,88 +1,12 @@
-# Development environment setup
-.PHONY: setup
-setup:
-	python -m pip install --upgrade pip
-	pip install -r requirements.txt
-	pip install -r requirements-dev.txt
-
-# Code quality and formatting
-.PHONY: format
+install: 
+	uv pip install --upgrade pip &&\
+		uv pip install -r requirements.txt
+			
 format:
-	black .
-	isort .
-	flake8 .
-
-# Linting
-.PHONY: lint
+	black *.py
+	
 lint:
-	flake8 .
-	mypy .
-	pylint .
-
-# Testing
-.PHONY: test
-test:
-	pytest tests/ -v --cov=. --cov-report=term-missing
-
-# Type checking
-.PHONY: type-check
-type-check:
-	mypy .
-
-# Security checks
-.PHONY: security
-security:
-	bandit -r .
-	safety check
-
-# Clean up
-.PHONY: clean
-clean:
-	find . -type d -name "__pycache__" -exec rm -r {} +
-	find . -type f -name "*.pyc" -delete
-	find . -type f -name "*.pyo" -delete
-	find . -type f -name "*.pyd" -delete
-	find . -type f -name ".coverage" -delete
-	find . -type d -name "*.egg-info" -exec rm -r {} +
-	find . -type d -name "*.egg" -exec rm -r {} +
-	find . -type d -name ".pytest_cache" -exec rm -r {} +
-	find . -type d -name ".mypy_cache" -exec rm -r {} +
-	find . -type d -name ".coverage" -exec rm -r {} +
-	find . -type d -name "htmlcov" -exec rm -r {} +
-	find . -type d -name "dist" -exec rm -r {} +
-	find . -type d -name "build" -exec rm -r {} +
-
-# Documentation
-.PHONY: docs
-docs:
-	sphinx-build -b html docs/ docs/_build/html
-
-# Graph-specific commands
-.PHONY: visualize
-visualize:
-	python scripts/visualize_graph.py
-
-# Development workflow
-.PHONY: dev
-dev: format lint test
-
-# Pre-commit hooks
-.PHONY: pre-commit
-pre-commit: format lint type-check test
-
-# Help command
-.PHONY: help
-help:
-	@echo "Available commands:"
-	@echo "  setup        - Install dependencies"
-	@echo "  format       - Format code using black and isort"
-	@echo "  lint         - Run linters (flake8, mypy, pylint)"
-	@echo "  test         - Run tests with coverage"
-	@echo "  type-check   - Run type checking"
-	@echo "  security     - Run security checks"
-	@echo "  clean        - Clean up cache and build files"
-	@echo "  docs         - Build documentation"
-	@echo "  visualize    - Generate graph visualizations"
-	@echo "  dev          - Run format, lint, and test"
-	@echo "  pre-commit   - Run all checks before committing"
-	@echo "  help         - Show this help message"
+	pylint --disable=R,C,E0401 *.py
+	
+	
+all: install lint format 
