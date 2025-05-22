@@ -1,3 +1,4 @@
+uv==0.7.6
 langchain==0.3.25
 langchain-openai==0.3.13
 langgraph==0.3.30
