@@ -25,7 +25,6 @@ jobs:
     - name: Install dependencies
       run: |
         make install
-        uv pip install pylint black
     - name: Lint with pylint
       run: |
         make lint

@@ -12,3 +12,5 @@ tavily-python==0.7.2
 langchain-mcp-adapters==0.1.0
 langgraph-cli[inmem]==0.2.10
 typing-extensions
+pylint 
+black
