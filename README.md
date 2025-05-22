@@ -85,6 +85,24 @@ export ALPACA_SECRET_KEY="your_alpaca_secret_key"
 export TAVILY_API_KEY="your_tavily_api_key"
 ```
 
+## Docker Setup
+
+You can also run the application using Docker:
+
+1. Build the Docker image:
+```bash
+docker build -t ai-investment-assistant .
+```
+
+2. Run the container with your environment variables:
+```bash
+docker run -e OPENAI_API_KEY="your_openai_api_key" \
+           -e ALPACA_API_KEY="your_alpaca_api_key" \
+           -e ALPACA_SECRET_KEY="your_alpaca_secret_key" \
+           -e TAVILY_API_KEY="your_tavily_api_key" \
+           ai-investment-assistant "your query here"
+```
+
 ## Usage
 
 ### Deployment with LangGraph
