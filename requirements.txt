@@ -4,6 +4,8 @@ langgraph-supervisor==0.0.16
 langchain-openai==0.3.13
 langgraph==0.3.30
 langsmith==0.3.42
+langchain_community==0.3.21
+langchain_nvidia_ai_endpoints==0.3.10
 langchain-mcp-adapters==0.1.0
 langgraph-cli[inmem]==0.2.10
 openai==1.74.0
