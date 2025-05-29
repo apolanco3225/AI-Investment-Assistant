@@ -72,6 +72,45 @@ The system is built using:
 - yfinance for market data
 - Tavily for news search
 
+## Testing
+
+The project includes comprehensive test coverage using pytest. Tests are automatically run through GitHub Actions on every push and pull request.
+
+### Running Tests Locally
+
+1. Install test dependencies:
+```bash
+uv pip install -r requirements-test.txt
+```
+
+2. Run the test suite:
+```bash
+pytest
+```
+
+3. Run tests with coverage report:
+```bash
+pytest --cov=.
+```
+
+### Test Structure
+
+```
+.
+├── tests/
+│   ├── unit/           # Unit tests for individual components
+│   ├── integration/    # Integration tests for agent interactions
+│   └── e2e/           # End-to-end tests for complete workflows
+```
+
+### Continuous Integration
+
+The project uses GitHub Actions for continuous integration. The workflow:
+- Runs on every push and pull request
+- Executes the full test suite
+- Generates coverage reports
+- Validates code style and formatting
+
 ## Setup
 
 1. Install required dependencies:
