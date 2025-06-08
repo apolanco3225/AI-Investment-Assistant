@@ -116,9 +116,9 @@ The project uses GitHub Actions for continuous integration. The workflow:
 
 ## Setup
 
-1. Install required dependencies:
+1. Install required dependencies using uv:
 ```bash
-uv pip install -r requirements.txt
+uv pip install .
 ```
 
 2. Set up environment variables:
@@ -164,7 +164,7 @@ This will start the LangGraph development server and open a visualization of you
 To run the system through the command line interface:
 
 ```bash
-python main.py "What is the current state of my portfolio?"
+uv run src/main.py "What is the current state of my portfolio?"
 ```
 
 Example queries:
