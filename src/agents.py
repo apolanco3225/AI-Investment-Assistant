@@ -17,15 +17,15 @@ from langchain import hub
 from langgraph_supervisor import create_supervisor
 
 # Local imports
-from .model_factory import create_agent, create_model, get_model_config
-from .agent_tools.portfolio_manager_tools import place_order, get_portfolio_state
-from .agent_tools.financial_analyst_tools import (
+from src.model_factory import create_agent, create_model, get_model_config
+from src.agent_tools.portfolio_manager_tools import place_order, get_portfolio_state
+from src.agent_tools.financial_analyst_tools import (
     get_analyst_price_targets,
     get_recommendations,
     get_fundamental_analysis,
     get_technical_analysis,
 )
-from .agent_tools.company_research_tools import (
+from src.agent_tools.company_research_tools import (
     get_basic_info,
     get_quarterly_report,
     search_financial_news,
