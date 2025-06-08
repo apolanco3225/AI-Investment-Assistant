@@ -1,24 +1,19 @@
-install:
-	pip install --upgrade pip && \
-	pip install -r requirements.txt
-
 format:
-	black *.py
+	uv run black *.py
 
 lint:
-	pylint --disable=R,C,E0401,E0611 *.py
+	uv run pylint --disable=R,C,E0401,E0611 *.py
 
 test:
-	pytest tests/ -v
+	uv run pytest tests/ -v
 
 test-agents:
 	uv run pytest tests/test_agents.py -v
 
-
 test-coverage:
-	pytest tests/ --cov=agent_tools -v
+	uv run pytest tests/ --cov=agent_tools -v
 
 test-watch:
-	pytest tests/ -v -f
+	uv run pytest tests/ -v -f
 
-all: install lint format test 
+all: lint format test 
