@@ -60,9 +60,7 @@ The system consists of four main components:
 ├── langgraph.json      # LangGraph workflow configuration
 ├── multi_agent_workflow.ipynb  # Jupyter notebook for workflow development
 ├── Makefile           # Build and deployment automation
-├── pyproject.toml     # Python project configuration
-├── tests/             # Test directory
-└── requirements.txt    # Project dependencies
+└── pyproject.toml     # Python project configuration
 ```
 
 ## Technical Implementation
@@ -116,7 +114,7 @@ The project uses GitHub Actions for continuous integration. The workflow:
 
 ## Setup
 
-1. Install required dependencies using uv:
+1. Install the project and its dependencies:
 ```bash
 uv pip install .
 ```
@@ -129,7 +127,24 @@ export ALPACA_SECRET_KEY="your_alpaca_secret_key"
 export TAVILY_API_KEY="your_tavily_api_key"
 ```
 
-## Docker Setup
+## Deployment
+
+### Using Dev Server
+
+The easiest way to run the application is using the dev server:
+
+1. Start the dev server:
+```bash
+uv run dev-server
+```
+
+2. The application will be available at `http://localhost:8000`
+
+3. You can interact with the agents through the web interface or API endpoints:
+   - Web Interface: Open `http://localhost:8000` in your browser
+   - API Documentation: Available at `http://localhost:8000/docs`
+
+### Docker Setup
 
 You can also run the application using Docker:
 
@@ -148,16 +163,6 @@ docker run -e OPENAI_API_KEY="your_openai_api_key" \
 ```
 
 ## Usage
-
-### Deployment with LangGraph
-
-To deploy and visualize the agent workflow graph:
-
-```bash
-langgraph dev
-```
-
-This will start the LangGraph development server and open a visualization of your agent workflow in your default web browser.
 
 ### Command Line Execution
 
