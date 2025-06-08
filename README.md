@@ -10,6 +10,29 @@ A multi-agent system for investment portfolio management and company research us
 
 This project implements a multi-agent system that combines portfolio management capabilities with company research and financial analysis functionality. The system uses a supervisor agent to coordinate between specialized agents that handle different aspects of investment management.
 
+## Quick Start
+
+The easiest way to run the application is using the dev server:
+
+1. Start the dev server:
+```bash
+make dev-server
+```
+
+2. Once the server is ready, you'll see:
+```
+Ready!
+
+- API: http://localhost:2024
+- Docs: http://localhost:2024/docs
+- LangGraph Studio Web UI: https://smith.langchain.com/studio/?baseUrl=http://127.0.0.1:2024
+```
+
+3. You can interact with the application through:
+   - API: Access the REST API at `http://localhost:2024`
+   - API Documentation: View the OpenAPI documentation at `http://localhost:2024/docs`
+   - LangGraph Studio: Monitor and debug your agent workflows at `https://smith.langchain.com/studio/?baseUrl=http://127.0.0.1:2024`
+
 ## Architecture
 
 The system consists of four main components:
@@ -22,9 +45,6 @@ The system consists of four main components:
 ### Workflow Diagram
 
 ![Image](https://github.com/user-attachments/assets/dd9e9246-685a-427e-924c-8d3cb7c52a87)
-
-
-
 
 ## Features
 
@@ -127,41 +147,6 @@ export ALPACA_SECRET_KEY="your_alpaca_secret_key"
 export TAVILY_API_KEY="your_tavily_api_key"
 ```
 
-## Deployment
-
-### Using Dev Server
-
-The easiest way to run the application is using the dev server:
-
-1. Start the dev server:
-```bash
-uv run dev-server
-```
-
-2. The application will be available at `http://localhost:8000`
-
-3. You can interact with the agents through the web interface or API endpoints:
-   - Web Interface: Open `http://localhost:8000` in your browser
-   - API Documentation: Available at `http://localhost:8000/docs`
-
-### Docker Setup
-
-You can also run the application using Docker:
-
-1. Build the Docker image:
-```bash
-docker build -t ai-investment-assistant .
-```
-
-2. Run the container with your environment variables:
-```bash
-docker run -e OPENAI_API_KEY="your_openai_api_key" \
-           -e ALPACA_API_KEY="your_alpaca_api_key" \
-           -e ALPACA_SECRET_KEY="your_alpaca_secret_key" \
-           -e TAVILY_API_KEY="your_tavily_api_key" \
-           ai-investment-assistant "your query here"
-```
-
 ## Usage
 
 ### Command Line Execution
@@ -179,32 +164,6 @@ Example queries:
 - "Sell 5 shares of MSFT"
 - "What are the analyst price targets for GOOGL?"
 - "Show me the technical analysis for MSFT"
-
-## Agents
-
-### Supervisor Agent
-The supervisor agent acts as the main coordinator, interpreting user requests and delegating them to the appropriate specialized agent. It ensures smooth communication between agents and maintains context throughout the conversation.
-
-### Portfolio Manager Agent
-Handles all portfolio-related operations:
-- Portfolio state monitoring
-- Order execution
-- Position tracking
-- Performance analysis
-
-### Financial Analyst Agent
-Provides comprehensive financial analysis:
-- Analyst price targets
-- Investment recommendations
-- Fundamental analysis
-- Technical analysis
-
-### Company Research Agent
-Provides detailed company research:
-- Company profiles
-- Quarterly reports
-- Financial news
-- Balance sheet analysis
 
 ## Contributing
 
