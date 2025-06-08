@@ -33,7 +33,8 @@ from agent_tools.company_research_tools import (
 )
 
 # Load configuration from YAML file
-with open("config.yml", "r", encoding="utf-8") as file:
+config_path = os.path.join(os.path.dirname(__file__), "..", "config.yml")
+with open(config_path, "r", encoding="utf-8") as file:
     config = yaml.safe_load(file)
 
 # Configure LangSmith environment for tracing and monitoring
