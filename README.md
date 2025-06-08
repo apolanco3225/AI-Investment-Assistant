@@ -50,15 +50,18 @@ The system consists of four main components:
 
 ```
 .
-├── agent_tools/         # Custom tools for each agent
-├── mcp_servers/         # Multi-agent communication protocol servers
-├── .langgraph_api/      # LangGraph API configuration
-├── main.py             # Main script for command line execution
-├── agents.py           # Agent definitions and configurations
+├── src/                # Source code directory
+│   ├── agent_tools/    # Custom tools for each agent
+│   ├── mcp_servers/    # Multi-agent communication protocol servers
+│   ├── agents.py       # Agent definitions and configurations
+│   └── main.py        # Main script for command line execution
+├── .langgraph_api/     # LangGraph API configuration
 ├── config.yml          # Configuration settings
 ├── langgraph.json      # LangGraph workflow configuration
 ├── multi_agent_workflow.ipynb  # Jupyter notebook for workflow development
-├── MakeFile           # Build and deployment automation
+├── Makefile           # Build and deployment automation
+├── pyproject.toml     # Python project configuration
+├── tests/             # Test directory
 └── requirements.txt    # Project dependencies
 ```
 
