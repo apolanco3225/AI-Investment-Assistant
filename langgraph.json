@@ -1,10 +1,9 @@
 {
     "dockerfile_lines": [],
     "graphs": {
-      "sample_graph": "./agents.py:graph"
-  
+      "sample_graph": "./src/agents.py:graph"
     },
-    "env": "./.env",
+    "env": "./.venv",
     "python_version": "3.11",
     "dependencies": [
       "."
