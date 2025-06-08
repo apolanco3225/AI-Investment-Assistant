@@ -12,7 +12,8 @@ test:
 	pytest tests/ -v
 
 test-agents:
-	pytest tests/test_agents.py -v
+	uv run pytest tests/test_agents.py -v
+
 
 test-coverage:
 	pytest tests/ --cov=agent_tools -v
