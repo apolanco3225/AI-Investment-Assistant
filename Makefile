@@ -1,8 +1,8 @@
 format:
-	uv run black *.py
+	uv run black src/*.py
 
 lint:
-	uv run pylint --disable=R,C,E0401,E0611 *.py
+	uv run pylint --disable=R,C,E0401,E0611 src/*.py
 
 test:
 	uv run pytest tests/ -v
