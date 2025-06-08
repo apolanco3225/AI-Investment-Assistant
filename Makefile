@@ -20,4 +20,10 @@ install:
 	uv venv
 	uv pip install -e .
 
+dev-server:
+	uv venv .venv --python 3.11
+	source .venv/bin/activate 
+	uv pip install -e .
+	langgraph dev
+
 all: lint format test 
