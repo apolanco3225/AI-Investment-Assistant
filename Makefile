@@ -16,4 +16,8 @@ test-coverage:
 test-watch:
 	uv run pytest tests/ -v -f
 
+install:
+	uv venv
+	uv pip install -e .
+
 all: lint format test 
