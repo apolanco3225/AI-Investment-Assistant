@@ -42,7 +42,7 @@ os.environ["LANGSMITH_TRACING"] = "true"
 os.environ["LANGSMITH_PROJECT"] = config["project_name"]
 
 # Set the provider to use (can be "openai", "nvidia", or "ollama")
-PROVIDER = "openai"
+PROVIDER = config["provider"]
 
 # Create Portfolio Manager Agent
 # This agent is responsible for managing investment portfolios, executing trades,

@@ -1,5 +1,8 @@
 project_name: "testing_financial_agent"
 
+# Provider Configuration
+provider: "openai"  # Options: "openai", "nvidia", "ollama"
+
 # OpenAI Configuration
 openai_models:
   orchestrator:
@@ -38,7 +41,7 @@ openai_models:
 nvidia_models:
   orchestrator:
     provider: nvidia
-    model: mixtral-8x7b-instruct-v0.1
+    model: nv-mistralai/mistral-nemo-12b-instruct
     description: "Primary orchestrator for coordinating between different components"
     prompt_handler: "apolanco3225/prompt_orchestrator_agent"
     temperature: 0
@@ -46,7 +49,7 @@ nvidia_models:
 
   company_researcher:
     provider: nvidia
-    model: mixtral-8x7b-instruct-v0.1
+    model: nv-mistralai/mistral-nemo-12b-instruct
     description: "Specialized in company research and analysis"
     prompt_handler: "apolanco3225/prompt_company_researcher_agent"
     temperature: 0
@@ -54,7 +57,7 @@ nvidia_models:
 
   portfolio_manager:
     provider: nvidia
-    model: mixtral-8x7b-instruct-v0.1
+    model: nv-mistralai/mistral-nemo-12b-instruct
     description: "Manages portfolio composition and investment strategies"
     prompt_handler: "apolanco3225/prompt_portfolio_manager_agent"
     temperature: 0
@@ -62,7 +65,7 @@ nvidia_models:
 
   financial_analyst:
     provider: nvidia
-    model: mixtral-8x7b-instruct-v0.1
+    model: nv-mistralai/mistral-nemo-12b-instruct
     description: "Performs detailed financial analysis and forecasting"
     prompt_handler: "apolanco3225/prompt_financial_analyst_agent"
     temperature: 0
