@@ -17,26 +17,33 @@ test-watch:
 	uv run pytest tests/ -v -f
 
 install:
-	uv venv
+	uv venv .venv --python 3.11 && \
+	. .venv/bin/activate && \
 	uv pip install -e .
 
-dev-server:
-	uv venv .venv --python 3.11
-	. .venv/bin/activate && \
-	uv pip install -e . && \
+dev-deploy:
 	langgraph dev
+
+env-setup::
+	uv venv .venv --python 3.11 && \
+	. .venv/bin/activate && \
+	uv pip install -e .
+
+dev-server: env-setup dev-deploy
 
 all: lint format test 
 
 help:
 	@echo "Available commands:"
-	@echo "  make format        - Format Python code using black"
-	@echo "  make lint         - Run pylint checks on Python files"
-	@echo "  make test         - Run all tests with verbose output"
-	@echo "  make test-agents  - Run specific agent tests"
-	@echo "  make test-coverage - Run tests with coverage reporting"
-	@echo "  make test-watch   - Run tests in watch mode"
-	@echo "  make install      - Set up virtual environment and install package"
-	@echo "  make dev-server   - Set up development environment and run langgraph server"
-	@echo "  make all          - Run lint, format, and test checks"
-	@echo "  make help         - Show this help message" 
+	@echo "  make format        - Format Python code using black (src/*.py)"
+	@echo "  make lint         - Run pylint checks on Python files (src/*.py)"
+	@echo "  make test         - Run all tests with verbose output (tests/)"
+	@echo "  make test-agents  - Run specific agent tests (tests/test_agents.py)"
+	@echo "  make test-coverage - Run tests with coverage reporting for agent_tools"
+	@echo "  make test-watch   - Run tests in watch mode (auto-rerun on changes)"
+	@echo "  make install      - Create virtual environment and install package in editable mode"
+	@echo "  make dev-deploy   - Start langgraph development server"
+	@echo "  make env-setup    - Set up Python 3.11 virtual environment and install dependencies"
+	@echo "  make dev-server   - Set up development environment and start langgraph server"
+	@echo "  make all          - Run all checks: lint, format, and tests"
+	@echo "  make help         - Display this help message" 
