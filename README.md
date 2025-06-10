@@ -12,11 +12,11 @@ This project implements a multi-agent system that combines portfolio management 
 
 ## Quick Start
 
-The easiest way to run the application is using the dev server:
+The easiest way to run the application is using the deployment command:
 
-1. Start the dev server:
+1. Deploy the application:
 ```bash
-make dev-server
+make deploy
 ```
 
 2. Once the server is ready, you'll see:
