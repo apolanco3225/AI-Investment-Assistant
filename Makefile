@@ -16,11 +16,6 @@ test-coverage:
 test-watch:
 	uv run pytest tests/ -v -f
 
-install:
-	uv venv .venv --python 3.11 && \
-	. .venv/bin/activate && \
-	uv pip install -e .
-
 dev-deploy:
 	langgraph dev
 
@@ -28,6 +23,9 @@ env-setup::
 	uv venv .venv --python 3.11 && \
 	. .venv/bin/activate && \
 	uv pip install -e .
+
+activate-env:
+	source .venv/bin/activate
 
 dev-server: env-setup dev-deploy
 
