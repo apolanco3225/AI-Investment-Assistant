@@ -13,9 +13,9 @@ jobs:
       with:
         python-version: 3.11
     - uses: astral-sh/setup-uv@v5
-    - name: Install dependencies
+    - name: Install dependencies and set up environment
       run: |
-        make install
+        make env-setup
     - name: Lint with pylint
       run: |
         make lint
