@@ -15,6 +15,8 @@ import yaml
 # Third-party imports
 from langchain import hub
 from langgraph_supervisor import create_supervisor
+from langgraph.store.memory import InMemoryStore
+from langgraph.checkpoint.memory import InMemorySaver
 
 # Local imports
 from src.model_factory import create_agent, create_model, get_model_config
@@ -31,6 +33,23 @@ from src.agent_tools.company_research_tools import (
     search_financial_news,
     get_balance_sheet,
 )
+
+
+# Configure vector store with OpenAI embeddings for semantic search capabilities
+# - dims: 1536 dimensions for text-embedding-3-small model
+# - embed: Using OpenAI's text-embedding-3-small model for efficient embeddings
+store = InMemoryStore(
+    index={
+        "dims": 1536,
+        "embed": "openai:text-embedding-3-small"
+    }
+)
+
+# Initialize checkpoint saver for persisting workflow state
+# This allows for resuming workflows from their last saved state
+checkpointer = InMemorySaver()
+
+
 
 # Load configuration from YAML file
 config_path = os.path.join(os.path.dirname(__file__), "..", "config.yml")
@@ -101,5 +120,12 @@ workflow = create_supervisor(
     prompt=orchestrator_prompt,
 )
 
-# Compile the workflow into an executable graph
-graph = workflow.compile()
+# Compile the workflow into an executable graph with state management
+# - store: Vector store for semantic search and data persistence
+# - checkpointer: Enables workflow state persistence and resumability
+graph = workflow.compile(
+    # store=store,
+    # checkpointer=checkpointer
+)
+
+graph.name = "AI-Investment-Assistant"
