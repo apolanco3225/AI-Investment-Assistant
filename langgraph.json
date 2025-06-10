@@ -3,7 +3,7 @@
     "graphs": {
       "sample_graph": "./src/agents.py:graph"
     },
-    "env": "./.venv",
+    "env": "./.env",
     "python_version": "3.11",
     "dependencies": [
       "."
