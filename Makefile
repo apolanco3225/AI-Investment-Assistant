@@ -16,8 +16,8 @@ test-coverage:
 test-watch:
 	uv run pytest tests/ -v -f
 
-dev-deploy:
-	langgraph dev
+deploy:
+	uv run langgraph dev
 
 env-setup::
 	uv venv .venv --python 3.11 && \
@@ -26,8 +26,6 @@ env-setup::
 
 activate-env:
 	source .venv/bin/activate
-
-dev-server: env-setup dev-deploy
 
 all: lint format test 
 
@@ -40,8 +38,7 @@ help:
 	@echo "  make test-coverage - Run tests with coverage reporting for agent_tools"
 	@echo "  make test-watch   - Run tests in watch mode (auto-rerun on changes)"
 	@echo "  make install      - Create virtual environment and install package in editable mode"
-	@echo "  make dev-deploy   - Start langgraph development server"
+	@echo "  make deploy       - Start langgraph development server"
 	@echo "  make env-setup    - Set up Python 3.11 virtual environment and install dependencies"
-	@echo "  make dev-server   - Set up development environment and start langgraph server"
 	@echo "  make all          - Run all checks: lint, format, and tests"
 	@echo "  make help         - Display this help message" 
